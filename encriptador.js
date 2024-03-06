@@ -1,10 +1,21 @@
-let matrizCode = [
+ let matrizCode = [
     ["e","enter"],  // indice 0
     ["i","imes"],   // indice 1
     ["a","ai"],     // indice 2
     ["o","ober"],   // indice 3
     ["u","ufat"],   // indice 4
-];
+];  
+
+
+
+let matrizCode2 = [
+    ["a","ai"],  // indice 0
+    ["e","enter"],   // indice 1
+    ["i","imes"],     // indice 2
+    ["o","ober"],   // indice 3
+    ["u","ufat"],   // indice 4
+]; 
+
 let text_input = document.querySelector("#campo-texto");
 let text_output = document.querySelector("#campo-mensaje");
 
@@ -98,26 +109,32 @@ function validacion(datos){
     return datos;
 }
 
-function encriptar(frase){
+function encriptar (frase){
+    
     for(indice in matrizCode){
         if(frase.includes(matrizCode[indice][0])){
+             
             frase = frase.replaceAll(
                 matrizCode[indice][0],
                 matrizCode[indice][1]
-                )
-        }          
-    }
-    return frase;
+                ) 
+        }     
+    } 
+    
+    return frase; 
 }
 
+
 function desEncriptar (fraseCifrada){
-    for(indice in matrizCode){
-        if(fraseCifrada.includes(matrizCode[indice][1])){
-            fraseCifrada = fraseCifrada.replaceAll(
-                matrizCode[indice][1],
-                matrizCode[indice][0]
-                )
-        }      
-    }
-    return fraseCifrada;
+    
+    for(indice in matrizCode2){
+        if(fraseCifrada.includes(matrizCode2[indice][1])){
+            console.log('Entrada',fraseCifrada);
+            fraseCifrada = fraseCifrada.replaceAll(matrizCode2[indice][1],matrizCode2[indice][0]); 
+            console.log('Salida',fraseCifrada);
+        }     
+    } 
+    
+    return fraseCifrada;     
 }
+
